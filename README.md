@@ -1,6 +1,6 @@
 # kubernetes-devops-securityv  
 
-## Fork and Clone this Repo  rah dei
+## Fork and Clone this Repo  rah dei tewting
 
 ## Clone to Desktop and VM
 
