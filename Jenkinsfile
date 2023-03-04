@@ -1,3 +1,6 @@
+## Docker Build and Push Stage
+## replace  siddharth67 with your dockerhub username
+
 pipeline {
   agent any
 
@@ -21,7 +24,7 @@ pipeline {
         }
       }
     }
-// Docker stage added
+
     stage('Docker Build and Push') {
       steps {
         withDockerRegistry([credentialsId: "docker-hub", url: ""]) {
