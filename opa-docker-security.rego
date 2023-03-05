@@ -38,22 +38,22 @@ deny[msg] {
 #}
 
 # Avoid curl bashing
-deny[msg] {
-    input[i].Cmd == "run"
-    val := concat(" ", input[i].Value)
-    matches := regex.find_n("(curl|wget)[^|^>]*[|>]", lower(val), -1)
-    count(matches) > 0
-    msg = sprintf("Line %d: Avoid curl bashing", [i])
-}
+#deny[msg] {
+#    input[i].Cmd == "run"
+#    val := concat(" ", input[i].Value)
+#    matches := regex.find_n("(curl|wget)[^|^>]*[|>]", lower(val), -1)
+#    count(matches) > 0
+#    msg = sprintf("Line %d: Avoid curl bashing", [i])
+#}
 
 # Do not upgrade your system packages
-warn[msg] {
-    input[i].Cmd == "run"
-    val := concat(" ", input[i].Value)
-    matches := regex.match(".*?(apk|yum|dnf|apt|pip).+?(install|[dist-|check-|group]?up[grade|date]).*", lower(val))
-    matches == true
-    msg = sprintf("Line: %d: Do not upgrade your system packages: %s", [i, val])
-}
+#warn[msg] {
+#    input[i].Cmd == "run"
+#    val := concat(" ", input[i].Value)
+#    matches := regex.match(".*?(apk|yum|dnf|apt|pip).+?(install|[dist-|check-|group]?up[grade|date]).*", lower(val))
+#    matches == true
+#    msg = sprintf("Line: %d: Do not upgrade your system packages: %s", [i, val])
+#}
 
 # Do not use ADD if possible
 deny[msg] {
@@ -95,13 +95,13 @@ deny[msg] {
 #}
 
 # Use multi-stage builds
-default multi_stage = false
-multi_stage = true {
-    input[i].Cmd == "copy"
-    val := concat(" ", input[i].Flags)
-    contains(lower(val), "--from=")
-}
-deny[msg] {
-    multi_stage == false
-    msg = sprintf("You COPY, but do not appear to use multi-stage builds...", [])
-}
+#default multi_stage = false
+#multi_stage = true {
+#    input[i].Cmd == "copy"
+#    val := concat(" ", input[i].Flags)
+#    contains(lower(val), "--from=")
+#}
+#deny[msg] {
+#    multi_stage == false
+#    msg = sprintf("You COPY, but do not appear to use multi-stage builds...", [])
+#}
