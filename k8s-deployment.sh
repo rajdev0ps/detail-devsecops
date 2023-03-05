@@ -1,4 +1,4 @@
-sed -i "s#replace#${imageName}#g" k8s_deployment_service.yaml
+sed -i "s#replace#rajdev0psnumeric-app${GIT_COMMIT}#g" k8s_deployment_service.yaml
 # kubectl -n default get deployment ${deploymentName} > /dev/null
 
 # if [[ $? -ne 0 ]]; then
