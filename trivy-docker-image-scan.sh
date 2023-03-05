@@ -1,4 +1,5 @@
 #!/bin/bash
+cd /home/ubuntu/detail-devsecops
 dockerImageName=$(awk 'NR==1 {print $2}' Dockerfile)
 echo $dockerImageName
 
