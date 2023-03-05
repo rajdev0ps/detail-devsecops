@@ -36,7 +36,6 @@ pipeline {
     stage('SonarQube - SAST') {
       steps {
         sh "mvn sonar:sonar -Dsonar.projectKey=numeric-application -Dsonar.organization=javaprojectaws78 -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=6e6f21142ef38b60137d013646b108c24aa83717"
-        }
       }
     }
 
@@ -60,3 +59,5 @@ pipeline {
     }
 
   }
+
+}
